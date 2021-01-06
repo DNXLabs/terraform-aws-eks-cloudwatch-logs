@@ -9,6 +9,11 @@ variable "cluster_name" {
   description = "The name of the cluster."
 }
 
+variable "region" {
+  type	      = string
+  description = "The region for Fluent Bit Cloudwatch Logs"
+}
+
 variable "cluster_identity_oidc_issuer" {
   type        = string
   description = "The OIDC Identity issuer for the cluster."
@@ -27,7 +32,7 @@ variable "helm_chart_name" {
 
 variable "helm_chart_release_name" {
   type        = string
-  default     = "aws-cloudwatch-metrics"
+  default     = "aws-for-fluent-bit"
   description = "Fluent Bit Helm release name."
 }
 
@@ -45,7 +50,7 @@ variable "helm_chart_version" {
 
 variable "create_namespace" {
   type        = bool
-  default     = true
+  default     = false
   description = "Whether to create Kubernetes namespace with name defined by `namespace`."
 }
 

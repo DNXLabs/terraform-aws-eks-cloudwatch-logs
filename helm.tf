@@ -1,5 +1,5 @@
 resource "helm_release" "cloudwatch_logs" {
-  depends_on = [var.mod_dependency, kubernetes_namespace.cloudwatch_metrics]
+  depends_on = [var.mod_dependency, kubernetes_namespace.cloudwatch_logs]
   count      = var.enabled ? 1 : 0
   name       = var.helm_chart_name
   chart      = var.helm_chart_release_name
@@ -15,5 +15,10 @@ resource "helm_release" "cloudwatch_logs" {
   set {
     name  = "serviceAccount.name"
     value = var.service_account_name
+  }
+
+ set {
+   name = "cloudWatch.region"
+   value = var.region
   }
 }
