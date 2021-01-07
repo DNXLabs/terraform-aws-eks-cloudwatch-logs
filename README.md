@@ -49,15 +49,15 @@ module "cloudwatch_logs" {
 | cluster\_identity\_oidc\_issuer\_arn | The OIDC Identity issuer ARN for the cluster that can be used to associate IAM roles with a service account. | `string` | n/a | yes |
 | cluster\_name | The name of the cluster. | `string` | n/a | yes |
 | region|The region for Fluent Bit Cloudwatch Logs. | `string` | `us-east-1` | no |
-| create\_namespace | Whether to create Kubernetes namespace with name defined by `namespace`. | `bool` | `true` | no |
+| create\_namespace | Whether to create Kubernetes namespace with name defined by `namespace`. | `bool` | `false` | no |
 | enabled | Variable indicating whether deployment is enabled. | `bool` | `true` | no |
-| helm\_chart\_name | CloudWatch Agent Helm chart name. | `string` | `"aws-cloudwatch-logs"` | no |
-| helm\_chart\_release\_name | CloudWatch Agent Helm release name. | `string` | `"aws-cloudwatch-logs"` | no |
-| helm\_chart\_repo | CloudWatch Agent Helm repository name. | `string` | `"https://aws.github.io/eks-charts"` | no |
-| helm\_chart\_version | CloudWatch Agent Helm chart version. | `string` | `"0.0.1"` | no |
+| helm\_chart\_name | Fluent Bit Helm chart name. | `string` | `"aws-for-fluent-bit"` | no |
+| helm\_chart\_release\_name | Fluent Bit Helm release name. | `string` | `"aws-for-fluent-bit"` | no |
+| helm\_chart\_repo | Fluent Bit Helm repository name. | `string` | `"https://aws.github.io/eks-charts"` | no |
+| helm\_chart\_version | Fluent Bit Helm chart version. | `string` | `"0.1.5"` | no |
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
-| namespace | Kubernetes namespace to deploy CloudWatch Agent Helm chart. | `string` | `"amazon-cloudwatch"` | no |
-| service\_account\_name | cloudwatch-logs service account name. | `string` | `"aws-cloudwatch-logs"` | no |
+| namespace | Kubernetes namespace to deploy Fluent Bit Helm chart. | `string` | `"amazon-cloudwatch"` | no |
+| service\_account\_name | aws-for-fluent-bit service account name. | `string` | `"aws-for-fluent-bit"` | no |
 | worker\_iam\_role\_name | IAM role name for EKS worker groups. | `string` | n/a | yes |
 
 ## Outputs
