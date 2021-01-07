@@ -21,4 +21,9 @@ resource "helm_release" "cloudwatch_logs" {
    name = "cloudWatch.region"
    value = var.region
   }
+
+ set {
+   name = "cloudWatch.logGroupName"
+   value = "/aws/eks/$(kubernetes['labels']['app'])"
+  }
 }
