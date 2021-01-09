@@ -17,13 +17,13 @@ resource "helm_release" "cloudwatch_logs" {
     value = var.service_account_name
   }
 
- set {
-   name = "cloudWatch.region"
-   value = var.region
+  set {
+    name  = "cloudWatch.region"
+    value = var.region
   }
 
- set {
-   name = "cloudWatch.logGroupName"
-   value = "/aws/eks/$(kubernetes['labels']['app'])"
+  set {
+    name  = "cloudWatch.logGroupName"
+    value = "/aws/eks/$(kubernetes['labels']['app'])"
   }
 }
