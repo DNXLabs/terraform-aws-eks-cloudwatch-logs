@@ -26,4 +26,14 @@ resource "helm_release" "cloudwatch_logs" {
     name  = "cloudWatch.logGroupName"
     value = "/aws/eks/$(kubernetes['labels']['app'])"
   }
+
+  set {
+    name  = "firehose.enabled"
+    value = false
+  }
+
+  set {
+    name  = "kinesis.enabled"
+    value = false
+  }
 }
