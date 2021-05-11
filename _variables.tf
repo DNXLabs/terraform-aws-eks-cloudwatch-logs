@@ -51,13 +51,13 @@ variable "helm_chart_version" {
 
 variable "create_namespace" {
   type        = bool
-  default     = false
+  default     = true
   description = "Whether to create Kubernetes namespace with name defined by `namespace`."
 }
 
 variable "namespace" {
   type        = string
-  default     = "amazon-cloudwatch"
+  default     = "aws-cloudwatch-logs"
   description = "Kubernetes namespace to deploy Fluent Bit Helm chart."
 }
 
