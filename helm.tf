@@ -29,11 +29,25 @@ resource "helm_release" "cloudwatch_logs" {
 
   set {
     name  = "firehose.enabled"
-    value = false
+    value = var.firehose_enabled
   }
 
   set {
     name  = "kinesis.enabled"
-    value = false
+    value = var.kinesis_enabled
+  }
+
+  set {
+    name  = "elasticsearch.enabled"
+    value = var.elasticsearch_enabled
+  }
+
+  dynamic "set" {
+    for_each = var.settings
+
+    content {
+      name  = set.key
+      value = set.value
+    }
   }
 }

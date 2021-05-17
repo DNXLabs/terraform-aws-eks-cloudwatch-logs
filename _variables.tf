@@ -24,7 +24,6 @@ variable "cluster_identity_oidc_issuer_arn" {
   description = "The OIDC Identity issuer ARN for the cluster that can be used to associate IAM roles with a service account."
 }
 
-
 variable "helm_chart_name" {
   type        = string
   default     = "aws-for-fluent-bit"
@@ -45,7 +44,7 @@ variable "helm_chart_repo" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "0.1.5"
+  default     = "0.1.7"
   description = "Fluent Bit Helm chart version."
 }
 
@@ -75,4 +74,28 @@ variable "mod_dependency" {
 variable "worker_iam_role_name" {
   type        = string
   description = "IAM role name for EKS worker groups."
+}
+
+variable "firehose_enabled" {
+  type        = string
+  description = "Whether this plugin should be enabled or not."
+  default     = false
+}
+
+variable "kinesis_enabled" {
+  type        = string
+  description = "Whether this plugin should be enabled or not."
+  default     = false
+}
+
+variable "elasticsearch_enabled" {
+  type        = string
+  description = "Whether this plugin should be enabled or not."
+  default     = false
+}
+
+variable "settings" {
+  type        = map(any)
+  default     = {}
+  description = "Additional settings which will be passed to the Helm chart values."
 }
