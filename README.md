@@ -61,7 +61,7 @@ module "cloudwatch_logs" {
 | namespace | Kubernetes namespace to deploy Fluent Bit Helm chart. | `string` | `"aws-cloudwatch-logs"` | no |
 | region | The region for Fluent Bit Cloudwatch Logs | `string` | n/a | yes |
 | service\_account\_name | Fluent Bit service account name. | `string` | `"aws-for-fluent-bit"` | no |
-| settings | Additional settings which will be passed to the Helm chart values. | `map(any)` | `{}` | no |
+| settings | Additional settings which will be passed to the Helm chart values. | `map` | `{}` | no |
 | worker\_iam\_role\_name | IAM role name for EKS worker groups. | `string` | n/a | yes |
 
 ## Outputs
