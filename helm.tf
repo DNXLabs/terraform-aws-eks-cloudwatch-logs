@@ -42,12 +42,7 @@ resource "helm_release" "cloudwatch_logs" {
     value = var.elasticsearch_enabled
   }
 
-  dynamic "set" {
-    for_each = var.settings
-
-    content {
-      name  = set.key
-      value = set.value
-    }
-  }
+  values = [
+    yamlencode(var.settings)
+  ]
 }
