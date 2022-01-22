@@ -95,6 +95,7 @@ variable "elasticsearch_enabled" {
 }
 
 variable "settings" {
+  type        = map
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values."
 }
