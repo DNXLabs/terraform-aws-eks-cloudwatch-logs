@@ -8,23 +8,17 @@ resource "helm_release" "cloudwatch_logs" {
   namespace  = var.namespace
 
   set {
-    name  = "clusterName"
-    value = var.cluster_name
-  }
-
-  set {
     name  = "serviceAccount.name"
     value = var.service_account_name
   }
-
   set {
-    name  = "cloudWatch.region"
+    name  = "cloudWatchLogs.region"
     value = var.region
   }
 
   set {
-    name  = "cloudWatch.logGroupName"
-    value = "/aws/eks/${var.cluster_name}/$(kubernetes['labels']['app'])"
+    name  = "cloudWatchLogs.logGroupTemplate"
+    value = "/aws/eks/${var.cluster_name}/$(kubernetes['labels']['app.kubernetes.io/name'])"
   }
 
   set {
