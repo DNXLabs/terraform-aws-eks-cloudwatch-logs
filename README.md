@@ -55,7 +55,7 @@ module "cloudwatch_logs" {
 | helm\_chart\_name | Install Fluent Bit to send logs from containers to CloudWatch Logs | `string` | `"aws-for-fluent-bit"` | no |
 | helm\_chart\_release\_name | Fluent Bit Helm release name. | `string` | `"aws-for-fluent-bit"` | no |
 | helm\_chart\_repo | Fluent Bit Helm repository name. | `string` | `"https://aws.github.io/eks-charts"` | no |
-| helm\_chart\_version | Fluent Bit Helm chart version. | `string` | `"0.1.7"` | no |
+| helm\_chart\_version | Fluent Bit Helm chart version. | `string` | `"0.1.24"` | no |
 | kinesis\_enabled | Whether this plugin should be enabled or not. | `string` | `false` | no |
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
 | namespace | Kubernetes namespace to deploy Fluent Bit Helm chart. | `string` | `"aws-cloudwatch-logs"` | no |
