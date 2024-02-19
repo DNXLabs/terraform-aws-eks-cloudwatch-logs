@@ -72,7 +72,7 @@ variable "mod_dependency" {
 }
 
 variable "iam_policy_attach" {
-  type        = string
+  type        = bool
   description = "Whether to attach CloudWatchAgentServerPolicy to worker nodes iam role."
   default     = true
 }
