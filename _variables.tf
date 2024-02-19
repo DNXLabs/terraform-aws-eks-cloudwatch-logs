@@ -44,7 +44,7 @@ variable "helm_chart_repo" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "0.1.24"
+  default     = "0.1.32"
   description = "Fluent Bit Helm chart version."
 }
 
@@ -71,8 +71,15 @@ variable "mod_dependency" {
   description = "Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable."
 }
 
+variable "iam_policy_attach" {
+  type        = bool
+  description = "Whether to attach CloudWatchAgentServerPolicy to worker nodes iam role."
+  default     = true
+}
+
 variable "worker_iam_role_name" {
   type        = string
+  default     = null
   description = "IAM role name for EKS worker groups."
 }
 
